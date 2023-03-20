@@ -6,7 +6,7 @@ const listaClientes = () => {
 }
 
 const criaCliente = (nome, email) => {
-    return fetch('http://localhost:3000/profile', {
+    return fetch(`http://localhost:3000/profile`, {
         method: 'POST',
         headers: {
             'content-type' : 'application/json'
@@ -21,7 +21,14 @@ const criaCliente = (nome, email) => {
     })
 }
 
+const removeCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'DELETE'
+    })
+}
+
 export const clienteService = {
     listaClientes,
-    criaCliente
+    criaCliente,
+    removeCliente
 }
